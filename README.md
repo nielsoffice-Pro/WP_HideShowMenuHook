@@ -11,7 +11,8 @@ function hide_about_menu_item_by_title($items, $args) {
     if (is_user_logged_in()) {
         // Check if "About" is in the menu items and remove it
         $items = preg_replace('/<li[^>]*><a[^>]*>login<\/a><\/li>/i', '', $items);
-		$items = preg_replace('/<li[^>]*><a[^>]*>register<\/a><\/li>/i', '', $items);
+        $items = preg_replace('/<li[^>]*><a[^>]*>register<\/a><\/li>/i', '', $items);
+        /* ... add more menu names goes here to hide if user is logged in */
     }
 
     return $items;
@@ -26,6 +27,7 @@ function show_profile_menu_item_only_logged_in($items, $args) {
     } else {
         // Remove "Profile" menu item if the user is not logged in
         $items = preg_replace('/<li[^>]*><a[^>]*href="[^"]*logout[^"]*"[^>]*>[^<]*<\/a><\/li>/i', '', $items);
+ 	/* ... add more menu names goes here to hide if user is NOT login ! */
         return $items;
     }
 }
